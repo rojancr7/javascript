@@ -44,8 +44,32 @@ const newArry = myArray.join()
 
 const myHeros = ["Ronaldo", "bale", " Ramos", "Luka"];
 const movieHeros = ["Nani", "Kabir Singh", " jersey", "jannat"];
-myHeros.push(movieHeros);
+// myHeros.push(movieHeros);
 
-console.log(myHeros);
-console.log(movieHeros);
+// console.log(myHeros);
+// console.log(movieHeros);
+
+// const allHeroes = myHeros.concat(movieHeros);
+// // console.log(allHeroes);
+
+
+// const all_newHeros = [...movieHeros, ...myHeros];
+// console.log(all_newHeros);
+
+// const anotherArray = [1, 2, 3, 4, 5, 6, [12, 34, 564], [123, 456, 789, 0]];
+// console.log(anotherArray);
+
+// const realHeros = anotherArray.flat(Infinity);
+// console.log(realHeros);
+
+// console.log(Array.isArray("rojan"));
+// console.log(Array.from("rojan"));
+// console.log(Array.from({name: "rojan"})); // important 
+
+
+const scoreOne =123;
+const scoreTwo = 456;
+const scoreThree = 12312;
+
+console.log(Array.of(scoreOne, scoreTwo,scoreThree));
 
