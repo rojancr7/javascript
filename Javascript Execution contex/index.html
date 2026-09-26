@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Execution Context Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         PAGE HEADER
+         ============================================================ -->
+
+    <header>
+        <h1>JavaScript Execution Context</h1>
+
+        <p>
+            Interactive visualization of Execution Context,
+            Memory Phase, Execution Phase and Call Stack.
+        </p>
+    </header>
+
+
+    <!-- ============================================================
+         MAIN CONTAINER
+         ============================================================ -->
+
+    <main>
+
+        <!-- ========================================================
+             CODE SECTION
+             ======================================================== -->
+
+        <section class="panel">
+
+            <h2>JavaScript Code</h2>
+
+            <pre id="code">
+let firstNumber = 10;
+let secondNumber = 20;
+
+function addNumbers() {
+    let result = firstNumber + secondNumber;
+
+    console.log(result);
+}
+
+addNumbers();
+            </pre>
+
+        </section>
+
+
+        <!-- ========================================================
+             EXECUTION FLOW GRAPH
+             ======================================================== -->
+
+        <section class="panel">
+
+            <h2>Execution Flow</h2>
+
+            <div class="flow-graph">
+
+                <div class="flow-node" id="node-start">
+                    JavaScript Starts
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-node" id="node-global">
+                    Global Execution Context
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-node" id="node-memory">
+                    Memory Creation Phase
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-node" id="node-execution">
+                    Execution Phase
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-node" id="node-function">
+                    addNumbers()
+                    <br>
+                    Function Execution Context
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-node" id="node-finish">
+                    Function Finishes
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-node" id="node-continue">
+                    Global Code Continues
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             CALL STACK
+             ======================================================== -->
+
+        <section class="panel">
+
+            <h2>Call Stack</h2>
+
+            <p class="description">
+                The Call Stack follows LIFO:
+                <strong>Last In, First Out</strong>
+            </p>
+
+            <div class="stack-area">
+
+                <div class="stack" id="callStack">
+
+                    <!-- JavaScript will add contexts here -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             MEMORY
+             ======================================================== -->
+
+        <section class="panel">
+
+            <h2>Memory</h2>
+
+            <div class="memory-container">
+
+                <div class="memory-box">
+
+                    <h3>Global Memory</h3>
+
+                    <div id="globalMemory">
+
+                        <div class="memory-item">
+                            firstNumber →
+                            <span id="firstValue">?</span>
+                        </div>
+
+                        <div class="memory-item">
+                            secondNumber →
+                            <span id="secondValue">?</span>
+                        </div>
+
+                        <div class="memory-item">
+                            addNumbers →
+                            <span id="functionValue">?</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="memory-box">
+
+                    <h3>Function Memory</h3>
+
+                    <div id="functionMemory">
+
+                        <div class="memory-item">
+                            result →
+                            <span id="resultValue">?</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             EXPLANATION
+             ======================================================== -->
+
+        <section class="panel explanation-panel">
+
+            <h2>What is happening?</h2>
+
+            <div id="explanation">
+
+                Click
+                <strong>Next Step</strong>
+                to start the visualization.
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             CONTROLS
+             ======================================================== -->
+
+        <section class="controls">
+
+            <button id="previousBtn">
+                ← Previous
+            </button>
+
+            <button id="nextBtn">
+                Next Step →
+            </button>
+
+            <button id="resetBtn">
+                Reset
+            </button>
+
+        </section>
+
+
+        <!-- ========================================================
+             STEP COUNTER
+             ======================================================== -->
+
+        <div class="step-counter">
+
+            Step
+            <span id="stepNumber">0</span>
+            /
+            <span id="totalSteps">8</span>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

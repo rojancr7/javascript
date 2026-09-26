@@ -1,0 +1,453 @@
+/* ================================================================
+   BASIC RESET
+   ================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================================================
+   BODY
+   ================================================================ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0f172a;
+
+    color: #e2e8f0;
+
+    min-height: 100vh;
+
+    padding-bottom: 50px;
+}
+
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+
+header {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background: #020617;
+
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    font-size: 36px;
+
+    margin-bottom: 12px;
+
+    color: #38bdf8;
+}
+
+header p {
+    color: #94a3b8;
+
+    font-size: 16px;
+}
+
+
+/* ================================================================
+   MAIN
+   ================================================================ */
+
+main {
+    width: min(1100px, 92%);
+
+    margin: 30px auto;
+}
+
+
+/* ================================================================
+   PANEL
+   ================================================================ */
+
+.panel {
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.panel h2 {
+    margin-bottom: 20px;
+
+    color: #f8fafc;
+}
+
+
+/* ================================================================
+   CODE
+   ================================================================ */
+
+pre {
+    background: #020617;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    overflow-x: auto;
+
+    color: #a7f3d0;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+
+/* ================================================================
+   FLOW GRAPH
+   ================================================================ */
+
+.flow-graph {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* ================================================================
+   FLOW NODE
+   ================================================================ */
+
+.flow-node {
+    width: min(450px, 90%);
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #334155;
+
+    border: 2px solid #475569;
+
+    transition: 0.3s;
+
+    line-height: 1.5;
+}
+
+
+/* ================================================================
+   ACTIVE GRAPH NODE
+   ================================================================ */
+
+.flow-node.active {
+    background: #0369a1;
+
+    border-color: #38bdf8;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+
+/* ================================================================
+   COMPLETED GRAPH NODE
+   ================================================================ */
+
+.flow-node.completed {
+    background: #166534;
+
+    border-color: #22c55e;
+}
+
+
+/* ================================================================
+   ARROW
+   ================================================================ */
+
+.arrow {
+    font-size: 30px;
+
+    color: #64748b;
+
+    padding: 8px;
+}
+
+
+/* ================================================================
+   CALL STACK
+   ================================================================ */
+
+.stack-area {
+    min-height: 350px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    background: #020617;
+
+    border-radius: 12px;
+
+    padding: 20px;
+}
+
+
+/* ================================================================
+   STACK
+   ================================================================ */
+
+.stack {
+    width: 400px;
+
+    max-width: 90%;
+
+    min-height: 80px;
+
+    border-left: 5px solid #64748b;
+
+    border-right: 5px solid #64748b;
+
+    border-bottom: 5px solid #64748b;
+
+    display: flex;
+
+    flex-direction: column-reverse;
+
+    justify-content: flex-start;
+
+    padding: 10px;
+}
+
+
+/* ================================================================
+   STACK ITEM
+   ================================================================ */
+
+.stack-item {
+    background: #7c3aed;
+
+    border: 2px solid #a78bfa;
+
+    padding: 18px;
+
+    margin-top: 8px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    animation: stackIn 0.4s ease;
+
+    font-weight: bold;
+}
+
+
+@keyframes stackIn {
+
+    from {
+        transform: translateY(30px);
+
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+
+        opacity: 1;
+    }
+}
+
+
+/* ================================================================
+   DESCRIPTION
+   ================================================================ */
+
+.description {
+    color: #94a3b8;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================================================================
+   MEMORY
+   ================================================================ */
+
+.memory-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+.memory-box {
+    background: #020617;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #334155;
+}
+
+
+.memory-box h3 {
+    margin-bottom: 15px;
+
+    color: #38bdf8;
+}
+
+
+.memory-item {
+    padding: 12px;
+
+    margin-bottom: 8px;
+
+    background: #1e293b;
+
+    border-radius: 6px;
+
+    font-family: monospace;
+}
+
+
+.memory-item span {
+    color: #4ade80;
+
+    font-weight: bold;
+}
+
+
+/* ================================================================
+   EXPLANATION
+   ================================================================ */
+
+.explanation-panel {
+    border-left: 5px solid #38bdf8;
+}
+
+
+#explanation {
+    line-height: 1.8;
+
+    color: #cbd5e1;
+
+    font-size: 17px;
+}
+
+
+/* ================================================================
+   CONTROLS
+   ================================================================ */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+
+button {
+    padding: 13px 24px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    background: #0284c7;
+
+    color: white;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+
+    background: #0369a1;
+}
+
+
+#resetBtn {
+    background: #475569;
+}
+
+
+#resetBtn:hover {
+    background: #334155;
+}
+
+
+/* ================================================================
+   STEP COUNTER
+   ================================================================ */
+
+.step-counter {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #94a3b8;
+}
+
+
+#stepNumber {
+    color: #38bdf8;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* ================================================================
+   MOBILE
+   ================================================================ */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .memory-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stack {
+        width: 100%;
+    }
+
+}

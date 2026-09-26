@@ -1,0 +1,509 @@
+// ================================================================
+// JAVASCRIPT EXECUTION CONTEXT
+// ================================================================
+
+// Execution Context is the environment in which JavaScript
+// code is evaluated and executed.
+//
+// In simple words:
+//
+// Execution Context =
+// The environment where JavaScript runs your code.
+//
+// JavaScript creates an Execution Context before executing code.
+
+
+// ================================================================
+// 1. TYPES OF EXECUTION CONTEXT
+// ================================================================
+
+// JavaScript mainly has three important types of Execution Context:
+//
+// 1. Global Execution Context
+// 2. Function Execution Context
+// 3. Eval Execution Context
+//
+// In normal JavaScript development, the first two are the
+// most important to understand.
+//
+// Global Execution Context
+// → Created when JavaScript starts running a script.
+//
+// Function Execution Context
+// → Created whenever a function is called.
+//
+// Eval Execution Context
+// → Created when code is executed using eval().
+// → eval() is generally avoided in modern JavaScript.
+
+
+// ================================================================
+// 2. GLOBAL EXECUTION CONTEXT
+// ================================================================
+
+// When JavaScript starts running a program,
+// it first creates the Global Execution Context.
+//
+// All code outside functions belongs to the
+// Global Execution Context.
+
+let name = "Rojan";
+
+console.log(name);
+
+
+// The Global Execution Context is created first.
+//
+// Think of it like:
+//
+// JavaScript starts
+//       ↓
+// Global Execution Context
+//       ↓
+// Executes global code
+
+
+// ================================================================
+// 3. FUNCTION EXECUTION CONTEXT
+// ================================================================
+
+// Whenever a function is called,
+// JavaScript creates a new Function Execution Context.
+//
+// The function gets its own execution environment.
+
+function greet() {
+    let message = "Hello Rojan";
+
+    console.log(message);
+}
+
+greet();
+
+
+// When greet() is called:
+//
+// Global Execution Context
+//        ↓
+// greet() is called
+//        ↓
+// Function Execution Context is created
+//        ↓
+// Function code executes
+//        ↓
+// Function finishes
+//        ↓
+// Function Execution Context is removed
+
+
+// ================================================================
+// 4. EXECUTION CONTEXT HAS TWO MAIN PHASES
+// ================================================================
+
+// When an Execution Context is created,
+// JavaScript processes it in different stages.
+//
+// A simplified learning model is:
+//
+// 1. Memory Creation Phase
+// 2. Execution Phase
+
+
+// ================================================================
+// 5. MEMORY CREATION PHASE
+// ================================================================
+
+// During the Memory Creation Phase,
+// JavaScript prepares memory for variables and functions.
+//
+// Variables declared with var are initialized with:
+// undefined
+//
+// Function declarations are stored so they can be called
+// during the execution phase.
+
+
+// Example:
+
+var age = 20;
+
+function sayHello() {
+    console.log("Hello");
+}
+
+
+// Before the actual code execution,
+// JavaScript prepares memory for:
+//
+// age
+// sayHello
+
+
+// Conceptually:
+//
+// age       → undefined
+// sayHello  → function
+
+
+// ================================================================
+// 6. EXECUTION PHASE
+// ================================================================
+
+// During the Execution Phase,
+// JavaScript executes the code line by line.
+//
+// The value of variables is assigned during execution.
+
+var number = 10;
+
+console.log(number);
+
+
+// Conceptually:
+//
+// Memory Creation Phase:
+//
+// number → undefined
+//
+//
+// Execution Phase:
+//
+// number → 10
+// console.log(number) → 10
+
+
+// ================================================================
+// 7. FUNCTION CALL AND EXECUTION CONTEXT
+// ================================================================
+
+let firstNumber = 10;
+let secondNumber = 20;
+
+function addNumbers() {
+    let result = firstNumber + secondNumber;
+
+    console.log(result);
+}
+
+addNumbers();
+
+
+// Execution flow:
+//
+// 1. Global Execution Context is created.
+//
+// 2. firstNumber and secondNumber are prepared.
+//
+// 3. addNumbers function is stored.
+//
+// 4. Global code starts executing.
+//
+// 5. addNumbers() is called.
+//
+// 6. A new Function Execution Context is created.
+//
+// 7. result is created inside the function.
+//
+// 8. result gets the value 30.
+//
+// 9. console.log(result) executes.
+//
+// 10. Function Execution Context finishes.
+
+
+// ================================================================
+// 8. CALL STACK
+// ================================================================
+
+// JavaScript uses a Call Stack to keep track of
+// Execution Contexts.
+//
+// The Call Stack follows:
+//
+// LIFO
+//
+// LIFO means:
+//
+// Last In, First Out
+//
+// The last function added to the stack
+// is the first one removed.
+
+
+// Example:
+
+function one() {
+    console.log("One");
+}
+
+function two() {
+    console.log("Two");
+}
+
+one();
+two();
+
+
+// Simplified execution:
+//
+// Start:
+//
+// | Global Execution Context |
+// |__________________________|
+//
+// Call one():
+//
+// | one()                    |
+// | Global Execution Context |
+// |__________________________|
+//
+// one() finishes:
+//
+// | Global Execution Context |
+// |__________________________|
+//
+// Call two():
+//
+// | two()                    |
+// | Global Execution Context |
+// |__________________________|
+//
+// two() finishes:
+//
+// | Global Execution Context |
+// |__________________________|
+
+
+// ================================================================
+// 9. FUNCTION INSIDE FUNCTION
+// ================================================================
+
+// A function can call another function.
+//
+// Every function call creates a new
+// Function Execution Context.
+
+function first() {
+    console.log("First function");
+
+    second();
+}
+
+function second() {
+    console.log("Second function");
+}
+
+first();
+
+
+// Execution flow:
+//
+// Global Execution Context
+//          ↓
+// first()
+//          ↓
+// first Execution Context
+//          ↓
+// second()
+//          ↓
+// second Execution Context
+//          ↓
+// second() finishes
+//          ↓
+// first() continues
+//          ↓
+// first() finishes
+//          ↓
+// Global Execution Context continues
+
+
+// ================================================================
+// 10. EXECUTION CONTEXT + CALL STACK
+// ================================================================
+
+// The easiest way to connect these concepts:
+//
+// Execution Context
+// → The environment where code is executed.
+//
+// Call Stack
+// → Keeps track of which Execution Context is currently running.
+//
+// Example:
+//
+// function first() {
+//     second();
+// }
+//
+// function second() {
+//     console.log("Hello");
+// }
+//
+// first();
+
+
+// Simplified Call Stack:
+//
+//             ┌───────────────────┐
+//             │ second()          │
+//             ├───────────────────┤
+//             │ first()           │
+//             ├───────────────────┤
+//             │ Global Context    │
+//             └───────────────────┘
+//
+// second() finishes first.
+//
+// Then:
+//
+//             ┌───────────────────┐
+//             │ first()           │
+//             ├───────────────────┤
+//             │ Global Context    │
+//             └───────────────────┘
+//
+// first() finishes.
+//
+// Finally:
+//
+//             ┌───────────────────┐
+//             │ Global Context    │
+//             └───────────────────┘
+
+
+// ================================================================
+// 11. IMPORTANT: GLOBAL EXECUTION CONTEXT
+// ================================================================
+
+// The Global Execution Context is created first.
+//
+// It contains code that is outside functions.
+//
+// Example:
+
+let username = "Rojan";
+
+console.log(username);
+
+
+// Here:
+//
+// let username = "Rojan";
+//
+// and:
+//
+// console.log(username);
+//
+// are running inside the Global Execution Context.
+
+
+// ================================================================
+// 12. IMPORTANT: FUNCTION EXECUTION CONTEXT
+// ================================================================
+
+// Every time a function is called,
+// JavaScript creates a new Function Execution Context.
+
+function multiply(a, b) {
+    let result = a * b;
+
+    return result;
+}
+
+let answer = multiply(5, 4);
+
+console.log(answer);
+
+
+// Here:
+//
+// multiply(5, 4)
+//
+// creates a Function Execution Context.
+//
+// Inside that context:
+//
+// a      → 5
+// b      → 4
+// result → 20
+//
+// After the function returns,
+// its Execution Context is removed from the Call Stack.
+
+
+// ================================================================
+// 13. SIMPLE EXECUTION FLOW
+// ================================================================
+
+// Remember this basic flow:
+//
+// JavaScript program starts
+//          ↓
+// Global Execution Context created
+//          ↓
+// Memory Creation Phase
+//          ↓
+// Execution Phase
+//          ↓
+// Function is called
+//          ↓
+// Function Execution Context created
+//          ↓
+// Function executes
+//          ↓
+// Function finishes
+//          ↓
+// Function Execution Context removed
+//          ↓
+// Global code continues
+
+
+// ================================================================
+// 14. QUICK MEMORY
+// ================================================================
+
+// Execution Context
+// → Environment where JavaScript code executes.
+//
+// Global Execution Context
+// → Created when the JavaScript program starts.
+//
+// Function Execution Context
+// → Created whenever a function is called.
+//
+// Memory Creation Phase
+// → JavaScript prepares memory for variables and functions.
+//
+// Execution Phase
+// → JavaScript executes the code.
+//
+// Call Stack
+// → Keeps track of Execution Contexts.
+//
+// LIFO
+// → Last In, First Out.
+
+
+// ================================================================
+// FINAL IDEA
+// ================================================================
+
+// Think about JavaScript like this:
+//
+//                 JAVASCRIPT
+//                     ↓
+//          Global Execution Context
+//                     ↓
+//              Code executes
+//                     ↓
+//              Function called
+//                     ↓
+//          Function Execution Context
+//                     ↓
+//              Function executes
+//                     ↓
+//            Function finishes
+//                     ↓
+//        Function Context removed
+//                     ↓
+//            Global code continues
