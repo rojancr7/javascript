@@ -1,7 +1,3 @@
- const operatingSystem = ["Windows", "macOS", "Linux", "Ubuntu", "Fedora", "Debian"];
-
- const values = operatingSystem.map((os) => os.toUpperCase());{
-    console.log(values);
-    return values;
- }
- console.log(operatingSystem);
+const myNumbers = [1, 2, 3, 4, 5];
+const newNum = myNumbers.filter((num) => num > 4);
+console.log(newNum);
