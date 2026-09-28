@@ -1,0 +1,770 @@
+// ================================================================
+// JAVASCRIPT DOM
+// ================================================================
+
+// DOM stands for:
+//
+// Document Object Model
+//
+// The DOM is a programming interface that allows JavaScript
+// to interact with an HTML document.
+//
+// JavaScript can use the DOM to:
+//
+// - Find HTML elements
+// - Change HTML content
+// - Change CSS styles
+// - Change attributes
+// - Create new elements
+// - Remove elements
+// - Add event listeners
+// - Respond to user actions
+//
+// Simple idea:
+//
+// HTML
+//   ↓
+// Browser creates DOM
+//   ↓
+// JavaScript uses DOM
+//   ↓
+// HTML page can be changed
+
+
+// ================================================================
+// 1. WHAT IS THE DOM?
+// ================================================================
+
+// Suppose our HTML contains:
+//
+// <h1>Hello Rojan</h1>
+//
+// The browser converts the HTML document into a DOM structure.
+//
+// JavaScript can then access that <h1> element.
+//
+// Think of the DOM like a tree:
+//
+// Document
+//    ↓
+//   html
+//    ↓
+//   body
+//    ↓
+//   h1
+//    ↓
+// "Hello Rojan"
+
+
+// ================================================================
+// 2. DOCUMENT OBJECT
+// ================================================================
+
+// The browser provides a global object called:
+//
+// document
+//
+// The document object represents the current HTML page.
+//
+// JavaScript uses document to access and manipulate
+// elements in the webpage.
+
+console.log(document);
+
+
+// ================================================================
+// 3. SELECTING AN ELEMENT BY ID
+// ================================================================
+
+// HTML:
+//
+// <h1 id="title">Hello Rojan</h1>
+//
+// JavaScript can find this element using:
+//
+// document.getElementById("title")
+//
+// The ID must match exactly.
+
+const title = document.getElementById("title");
+
+console.log(title);
+
+
+// ================================================================
+// 4. CHANGING HTML CONTENT
+// ================================================================
+
+// innerHTML can be used to read or replace
+// the HTML inside an element.
+//
+// Example HTML:
+//
+// <h1 id="title">Hello</h1>
+//
+// JavaScript:
+
+const heading = document.getElementById("title");
+
+heading.innerHTML = "Hello Rojan";
+
+
+// The webpage changes from:
+//
+// Hello
+//
+// to:
+//
+// Hello Rojan
+
+
+// ================================================================
+// 5. textContent
+// ================================================================
+
+// textContent gets or changes the text inside an element.
+//
+// It treats the value as text rather than HTML.
+
+const message = document.getElementById("message");
+
+message.textContent = "Welcome to JavaScript";
+
+
+// If the HTML is:
+//
+// <p id="message"></p>
+//
+// The paragraph will display:
+//
+// Welcome to JavaScript
+
+
+// ================================================================
+// 6. innerHTML vs textContent
+// ================================================================
+
+// innerHTML can work with HTML markup.
+//
+// textContent treats the value as plain text.
+//
+// Example:
+
+const box = document.getElementById("box");
+
+box.innerHTML = "<strong>Hello</strong>";
+
+
+// The word Hello becomes bold because
+// innerHTML interprets the HTML tag.
+
+
+// If we use textContent:
+
+box.textContent = "<strong>Hello</strong>";
+
+
+// The browser displays:
+//
+// <strong>Hello</strong>
+//
+// as text instead of creating a bold element.
+
+
+// ================================================================
+// 7. SELECTING ELEMENTS BY CLASS
+// ================================================================
+
+// getElementsByClassName() finds elements
+// using their class name.
+//
+// Example HTML:
+//
+// <p class="text">One</p>
+// <p class="text">Two</p>
+//
+// JavaScript:
+
+const texts = document.getElementsByClassName("text");
+
+console.log(texts);
+
+
+// The result is a collection of matching elements.
+
+
+// ================================================================
+// 8. SELECTING ELEMENTS BY TAG NAME
+// ================================================================
+
+// getElementsByTagName() finds elements
+// using their HTML tag name.
+//
+// Example:
+
+const paragraphs = document.getElementsByTagName("p");
+
+console.log(paragraphs);
+
+
+// This finds all <p> elements on the page.
+
+
+// ================================================================
+// 9. querySelector()
+// ================================================================
+
+// querySelector() returns the first element
+// that matches a CSS selector.
+//
+// ID selector:
+
+const firstTitle = document.querySelector("#title");
+
+
+// Class selector:
+
+const firstBox = document.querySelector(".box");
+
+
+// Tag selector:
+
+const firstParagraph = document.querySelector("p");
+
+
+// Important:
+//
+// querySelector()
+// → returns the first matching element.
+
+
+// ================================================================
+// 10. querySelectorAll()
+// ================================================================
+
+// querySelectorAll() returns all elements
+// that match a CSS selector.
+//
+// Example:
+
+const allParagraphs = document.querySelectorAll("p");
+
+console.log(allParagraphs);
+
+
+// Example with a class:
+
+const allBoxes = document.querySelectorAll(".box");
+
+console.log(allBoxes);
+
+
+// Important:
+//
+// querySelector()
+// → first matching element
+//
+// querySelectorAll()
+// → all matching elements
+
+
+// ================================================================
+// 11. CHANGING CSS USING JAVASCRIPT
+// ================================================================
+
+// JavaScript can change an element's inline CSS
+// through the style property.
+//
+// Example:
+
+const headingStyle = document.querySelector("h1");
+
+headingStyle.style.color = "green";
+headingStyle.style.fontSize = "40px";
+
+
+// The selected <h1> now has:
+//
+// color → green
+// font-size → 40px
+
+
+// ================================================================
+// 12. CHANGING MULTIPLE CSS PROPERTIES
+// ================================================================
+
+const card = document.querySelector(".card");
+
+card.style.backgroundColor = "black";
+card.style.color = "white";
+card.style.padding = "20px";
+
+
+// ================================================================
+// 13. CHANGING ATTRIBUTES
+// ================================================================
+
+// HTML elements can have attributes.
+//
+// Examples:
+//
+// id
+// class
+// src
+// href
+// alt
+// title
+//
+// JavaScript can read or change attributes.
+
+const image = document.querySelector("img");
+
+image.setAttribute("alt", "Profile image");
+
+
+// ================================================================
+// 14. getAttribute()
+// ================================================================
+
+// getAttribute() reads the value of an attribute.
+
+const imageAlt = image.getAttribute("alt");
+
+console.log(imageAlt);
+
+
+// ================================================================
+// 15. setAttribute()
+// ================================================================
+
+// setAttribute() creates or changes an attribute.
+//
+// Syntax:
+//
+// element.setAttribute(attribute, value)
+
+const link = document.querySelector("a");
+
+link.setAttribute("href", "https://example.com");
+
+
+// ================================================================
+// 16. classList
+// ================================================================
+
+// classList allows JavaScript to work with
+// an element's CSS classes.
+//
+// Important methods:
+//
+// add()
+// remove()
+// toggle()
+// contains()
+
+
+// Add a class:
+
+const button = document.querySelector("button");
+
+button.classList.add("active");
+
+
+// Remove a class:
+
+button.classList.remove("active");
+
+
+// Toggle a class:
+//
+// If the class exists → remove it.
+// If the class does not exist → add it.
+
+button.classList.toggle("active");
+
+
+// Check whether a class exists:
+
+const hasActiveClass = button.classList.contains("active");
+
+console.log(hasActiveClass);
+
+
+// ================================================================
+// 17. CREATING A NEW ELEMENT
+// ================================================================
+
+// document.createElement() creates a new HTML element.
+//
+// Example:
+
+const newParagraph = document.createElement("p");
+
+newParagraph.textContent = "This paragraph was created by JavaScript";
+
+
+// ================================================================
+// 18. ADDING AN ELEMENT TO THE PAGE
+// ================================================================
+
+// appendChild() adds a newly created element
+// inside another element.
+
+const container = document.querySelector(".container");
+
+container.appendChild(newParagraph);
+
+
+// The new paragraph is now inside .container.
+
+
+// ================================================================
+// 19. REMOVE AN ELEMENT
+// ================================================================
+
+// remove() removes an element from the DOM.
+
+const oldElement = document.querySelector(".old");
+
+oldElement.remove();
+
+
+// ================================================================
+// 20. DOM EVENTS
+// ================================================================
+
+// An event is something that happens in the webpage.
+//
+// Examples:
+//
+// click
+// mouseover
+// mouseout
+// keydown
+// keyup
+// submit
+// change
+//
+// JavaScript can listen for these events.
+
+
+// ================================================================
+// 21. addEventListener()
+// ================================================================
+
+// addEventListener() allows JavaScript to respond
+// when an event happens.
+//
+// Syntax:
+//
+// element.addEventListener("event", function)
+
+const clickButton = document.querySelector("#button");
+
+clickButton.addEventListener("click", function () {
+    console.log("Button clicked");
+});
+
+
+// When the button is clicked,
+// the function runs.
+
+
+// ================================================================
+// 22. CLICK EVENT EXAMPLE
+// ================================================================
+
+const changeButton = document.querySelector("#changeButton");
+
+changeButton.addEventListener("click", function () {
+    document.querySelector("#title").textContent = "Text Changed!";
+});
+
+
+// ================================================================
+// 23. MOUSE EVENTS
+// ================================================================
+
+// mouseover
+// → Runs when the mouse moves over an element.
+
+const mouseBox = document.querySelector(".mouse-box");
+
+mouseBox.addEventListener("mouseover", function () {
+    console.log("Mouse is over the box");
+});
+
+
+// mouseout
+// → Runs when the mouse leaves an element.
+
+mouseBox.addEventListener("mouseout", function () {
+    console.log("Mouse left the box");
+});
+
+
+// ================================================================
+// 24. KEYBOARD EVENTS
+// ================================================================
+
+// keydown
+// → Runs when a keyboard key is pressed.
+
+document.addEventListener("keydown", function (event) {
+    console.log(event.key);
+});
+
+
+// event.key tells us which key was pressed.
+
+
+// ================================================================
+// 25. INPUT EVENT
+// ================================================================
+
+// The input event runs whenever the value
+// of an input changes.
+
+const input = document.querySelector("#username");
+
+input.addEventListener("input", function (event) {
+    console.log(event.target.value);
+});
+
+
+// event.target
+// → The element that triggered the event.
+//
+// event.target.value
+// → The current value of the input.
+
+
+// ================================================================
+// 26. FORM SUBMIT EVENT
+// ================================================================
+
+// Forms can be handled using the submit event.
+
+const form = document.querySelector("#form");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    console.log("Form submitted");
+});
+
+
+// event.preventDefault()
+// → Prevents the browser's default form submission behavior.
+
+
+// ================================================================
+// 27. DOM TRAVERSAL
+// ================================================================
+
+// DOM traversal means moving from one element
+// to another element in the DOM tree.
+//
+// Important properties:
+//
+// parentElement
+// children
+// firstElementChild
+// lastElementChild
+// nextElementSibling
+// previousElementSibling
+
+
+const child = document.querySelector(".child");
+
+console.log(child.parentElement);
+
+console.log(child.children);
+
+console.log(child.firstElementChild);
+
+console.log(child.lastElementChild);
+
+console.log(child.nextElementSibling);
+
+console.log(child.previousElementSibling);
+
+
+// ================================================================
+// 28. DOM TREE
+// ================================================================
+
+// HTML:
+//
+// <body>
+//     <div>
+//         <h1>Hello</h1>
+//         <p>Welcome</p>
+//     </div>
+// </body>
+//
+// DOM structure:
+//
+// document
+//    ↓
+// body
+//    ↓
+// div
+//   ↙ ↘
+// h1   p
+//
+// JavaScript can move through this structure
+// using DOM traversal properties.
+
+
+// ================================================================
+// 29. IMPORTANT DOM METHODS
+// ================================================================
+
+// document.getElementById()
+// → Selects one element by ID.
+//
+// document.getElementsByClassName()
+// → Selects elements by class name.
+//
+// document.getElementsByTagName()
+// → Selects elements by tag name.
+//
+// document.querySelector()
+// → Selects the first matching element.
+//
+// document.querySelectorAll()
+// → Selects all matching elements.
+//
+// document.createElement()
+// → Creates a new element.
+//
+// appendChild()
+// → Adds an element.
+//
+// remove()
+// → Removes an element.
+//
+// setAttribute()
+// → Creates or changes an attribute.
+//
+// getAttribute()
+// → Gets an attribute value.
+//
+// classList.add()
+// → Adds a CSS class.
+//
+// classList.remove()
+// → Removes a CSS class.
+//
+// classList.toggle()
+// → Adds/removes a CSS class.
+//
+// classList.contains()
+// → Checks whether a class exists.
+//
+// addEventListener()
+// → Listens for an event.
+
+
+// ================================================================
+// 30. IMPORTANT DOM PROPERTIES
+// ================================================================
+
+// innerHTML
+// → Gets or changes HTML inside an element.
+//
+// textContent
+// → Gets or changes text inside an element.
+//
+// style
+// → Allows inline CSS changes.
+//
+// parentElement
+// → Gets the parent element.
+//
+// children
+// → Gets child elements.
+//
+// value
+// → Gets the current value of form elements.
+
+
+// ================================================================
+// 31. QUICK MEMORY
+// ================================================================
+
+// DOM
+// ↓
+// Document Object Model
+//
+// document
+// ↓
+// Represents the current webpage
+//
+// querySelector()
+// ↓
+// Find the first matching element
+//
+// querySelectorAll()
+// ↓
+// Find all matching elements
+//
+// textContent
+// ↓
+// Change text
+//
+// innerHTML
+// ↓
+// Change HTML
+//
+// style
+// ↓
+// Change CSS
+//
+// classList
+// ↓
+// Manage CSS classes
+//
+// createElement()
+// ↓
+// Create an element
+//
+// appendChild()
+// ↓
+// Add an element
+//
+// remove()
+// ↓
+// Remove an element
+//
+// addEventListener()
+// ↓
+// Respond to user events
+
+
+// ================================================================
+// FINAL DOM IDEA
+// ================================================================
+
+// HTML creates the webpage structure.
+//
+// Browser converts HTML into the DOM.
+//
+// JavaScript accesses the DOM through:
+//
+// document
+//
+// JavaScript can then:
+//
+// SELECT
+//    ↓
+// CHANGE
+//    ↓
+// CREATE
+//    ↓
+// REMOVE
+//    ↓
+// RESPOND TO EVENTS
+//
+// This is how JavaScript makes webpages interactive.
