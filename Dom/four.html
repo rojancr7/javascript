@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> Rojan | DOM</title>
+   <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="div language">
+        <li>
+            Javascript
+        </li>
+    </div>
+    
+   <script>
+    function addLanguage(lanName){
+       const li = document.createElement('li');
+       li.innerHTML = `${lanName}`
+       document.querySelector('.language').
+       appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("TypeScript")
+
+    function addOptiLanguage (langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addOptiLanguage("Dart")
+    addOptiLanguage("golang")
+
+    // /EDITS
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    const newLi = document.createElement('li')
+    newLi.textContent ="Mojo"
+    secondLang.replaceWith(newLi);
+
+    //edits
+
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.innerHTML = '<li>TypeScript</li>'
+
+    //remove
+
+    const lastlang = document.querySelector('li:nth-child(5)')
+    lastlang.remove()
+   </script>
+</body>
+</html>
