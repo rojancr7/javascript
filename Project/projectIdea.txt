@@ -1,4 +1,4 @@
-Counter (buttons, state in memory) ← you've basically done this
+Counter (buttons, state in memory) ← done
 
 Color switcher ← done
 

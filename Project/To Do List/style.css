@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aqua;
+  color: crimson;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+#title {
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+#inpute {                       /* ← or #input, match your HTML! */
+  height: 42px;
+  width: 240px;
+  padding: 0 14px;
+  font-size: 15px;
+  border: 2px solid crimson;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: black;
+  transition: border-color 0.2s;
+}
+
+#inpute:focus {
+  border-color: darkblue;
+}
+
+#addButton {
+  height: 42px;
+  width: 80px;
+  margin-top: 10px;
+  margin-left: 8px;             /* sits next to input, not below */
+  border: 2px solid crimson;
+  border-radius: 20px;
+  background-color: darkblue;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-shadow: 1px 0 0 gold;
+  transition: all 0.2s ease;
+}
+
+#addButton:hover {
+  border: 2.9px solid crimson;
+  border-radius: 21px;
+  background-color: rgb(52, 52, 219);
+  color: rgb(247, 236, 236);
+  text-shadow: 2px 0 0 gold;
+  transform: translateY(-1px);
+}
+
+#addButton:active {
+  transform: translateY(1px);  
+}
