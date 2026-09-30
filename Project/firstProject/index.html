@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Color</title>
+    <style>
+        body{
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #236305;
+      transition: background-color 0.3s ease;
+      font-family: sans-serif;
+    }
+
+    .canvas {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: 24px;
+      color: #17172A;
+    }
+
+    .button {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      margin: 6px;
+      border-radius: 50%;
+      border: 3px solid #0c7db1;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.13);
+    }
+
+    #gray   { background: rgb(116, 110, 110); }
+    #white  { background: white; }
+    #blue   { background: blue; }
+    #yellow { background: yellow; }
+  </style>
+</head>
+<body>
+   <div class="canvas">
+    <h1>color switcher</h1>
+    <span class="button" id ="grey"></span>
+    <span class="button" id="white"></span>
+    <span class="button" id="blue"></span>
+    <span class="button" id="yellow"></span>
+
+   </div>
+
+   <script src="script.js"></script>
+    <!-- <script>
+        console.log("hitesh")
+const buttons = document.querySelectorAll('.button');
+const body = document.querySelector('body');
+
+buttons.forEach(function (button) {
+  console.log(button);
+  button.addEventListener('click', function (e) {
+    console.log(e);
+    console.log(e.target);
+    if (e.target.id === 'grey') {
+      body.style.backgroundColor = e.target.id;
+    }
+    if (e.target.id === 'white') {
+      body.style.backgroundColor = e.target.id;
+    }
+    if (e.target.id === 'blue') {
+      body.style.backgroundColor = e.target.id;
+    }
+    if (e.target.id === 'yellow') {
+      body.style.backgroundColor = e.target.id;
+    }
+    
+  });
+});
+
+
+    </script> -->
+</body>
+</html>

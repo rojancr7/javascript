@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+     <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f6f4ff, #e8e4ff);
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px 28px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(91, 74, 239, 0.15);
+      width: 100%;
+      max-width: 380px;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #17172A;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #68687A;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #17172A;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 15px;
+      border: 1.5px solid #d9d9e3;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      border-color: #5B4AEF;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: #5B4AEF;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #4a3ad6;
+    }
+
+    #results {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #5B4AEF;
+      min-height: 22px;
+    }
+
+    #results .bmi-value {
+      display: block;
+      font-size: 30px;
+      color: #17172A;
+      margin-bottom: 4px;
+    }
+
+    .category {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .under { background: #FFF3CD; color: #856404; }
+    .normal { background: #D4EDDA; color: #155724; }
+    .over  { background: #F8D7DA; color: #721C24; }
+    .error { color: #E05252; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <p class="subtitle"> Cheak your body mass index.</p>
+        <form id="bmiform">
+            <label for="height">Height(in cm)</label>
+            <input type="number" id="height" placeholder="eg. 170">
+            <label for="weight">Weight(in kg)</label>
+            <input type="number" id="weight" placeholder="eg. 46kg">
+
+            <button id="submit">Calculate BMI</button>
+
+            <div id="results">Your BMI will appear here
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Counter (buttons, state in memory) ← you've basically done this
+
+Color switcher ← done
+
+BMI calculator ← done
+
+To-do list (add, delete, mark done, localStorage)
+
+Quiz app (array of questions, score, result screen)
+
+Weather app (fetch API, async/await, error handling)
+
+Notes app (CRUD + localStorage)
+
+Expense tracker (arrays of objects, reduce, charts)
